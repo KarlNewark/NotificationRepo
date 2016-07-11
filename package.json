@@ -1,0 +1,16 @@
+{
+  "name": "podcastapi",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "server test"
+  },
+  "author": "Karl Newark",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "feedparser": "^1.1.4",
+    "request": "^2.69.0"
+  }
+}
