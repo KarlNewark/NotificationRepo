@@ -1,9 +1,18 @@
+List = require('./repository/');
+list = new List(null);
 
-request = require('request');
-var Podcast = require('./pull_modules/podcast/');
+var Parser = require("./pull_modules/podcast/");
 
-var Save = require('./save.js');
+var NAPull = new Parser();
+NAPull.parse('http://nightattack.tv/feed/audio', function(input){ list.render(input) });
 
-var nightAttack = new Podcast(Save, 'http://nightattack.tv/feed/audio');
+var express = require('express');
+var app = express();
 
-nightAttack.pull();
+app.get('/', function(req, res) {
+  res.send(list.getList());
+});
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
+});
